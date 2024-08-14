@@ -1,97 +1,51 @@
-// for(let i = 0;i<10;i++){
-//     console.log("누나", i)
+let fruit = ["apple", "mango", "strawberry", "pineapple"]
+
+// for(let i=0;i<fruit.length;i++){
+//     console.log("누나가 좋아하는 과일은", fruit[i])
 // }
 
-///나는 짝수의 결과만 보고싶어 그럼 어떻게 식을 해야할까? -> 첫번째 방법이 더 빠른 처리가 되므로 더 효율적이라고 볼 수 있음
-// for(let i = 0;i<10;i+=2){
-//     console.log("누낭",i)
-// }
+for(let item of fruit){
+    console.log("누나가 좋아하는 과일은", item)
+}
 
-// for (let i=0;i<10;i++){
-//     if(i%2==0){
-//         console.log("누나",i)
-//     }
-// }
+let sentence = "누나는 코딩을 좋아해"
 
-//구구단식 만들기//
-for(let i = 2; i<10; i++){
-    for(let k = 1; k<10; k++){
-        console.log(i+'*'+k+'='+i*k)
+for(let char of sentence){
+    console.log("char", char)
+}
+
+let person = {
+    name: "누나",
+    age: 30,
+    cute: true,
+}
+
+for(let key in person){
+    console.log("key", key)
+    if(key === "cute"){
+        console.log("누나는 귀엽니?", person[key])
     }
 }
 
-//while문//
-let j = 2
-while(j<10){
-    console.log("while문 실행", j)
-    j++;
+let color = ["Red", "Black", "Pink"]
+
+for(let key in color) {
+    console.log("배열의 키값은?", key)
 }
 
-//for랑 찰떡궁합인 배열..배열과 함께 잘씀
-let fruit = ["banana", "apple", "grape", "mango"]
+//// 전시간 369 문제 풀이/////
+///반복문 좌절하지마~ 원래 반복문이 제일 어려워
+///문제 1부터 50까지 숫자중 369 결과를 프린트 하자. 369 숫자에는 짝 이라는 문자가 나와야해..주의해야할것은? 30대에 들어가면 33, 36, 39이럴땐 짝짝 두번이지? 주의해~ 
+//내가 착각한게 있는데 3의 배수가 아니고 3,6,9 들어간 숫자에만 짝 치는거임
+//힌트를 주면 우리는 33을 볼때 3이니까 짝 뒤에 또 3이니까 짝.. 이런식으로 하나하나 떨어뜨려서 문자로 보고 짝을 한거야. 즉 숫자를 문자로 분리해줘야해.
 
-for(let f = 0;f<fruit.length;f++){
-    console.log(fruit[f])
-}
-
-//숙제1번 1부터 100까지 더하는 for문을 만들고 결과를 출력하시오//
-let sum = 0
-for(let a=1;a<101;a++){
-    sum+=a;
-}
-console.log(sum);
-//선생님답//
-// let sum = 0
-// for(let i=1;i<100;i++){
-//     sum+=i
-// }
-// console.log(sum)
-
-
-
-
-///숙제2번 1부터 100까지 홀수만 출력하자//
-for(let b=1;b<101;b+=2){
-    console.log(b)
-}
-//선생님답//
-// for(let i=1;i<100;i+=2){
-//     console.log(i)
-// }
-
-
-
-
-//숙제3번 1부터 50까지 369결과를 프린트하자//(틀렸음. 잘못알아들어서 3단을 만드는건줄..)
-for(let c=1;c<17;c++){
-    console.log(c*3)
-}
-//선생님답//
-// for(let i=1;i<50;i++){
-//     let stringValue = i.toString()
-//     let result = ""
-//     for(let j=0;j<stringValue.length;j++){
-//         if(stringValue[j] == "3" ||stringValue[j] == "6" ||stringValue[j] == "9"){
-//             result+="짝"
-//         }
-//     }
-//     console.log(result.length>0?result:i)
-// }
-
-
-
-
-//숙제4번 주어진 숫자가 소수이면 true 아니면 false를 출력하는 프로그램을 짜시오.(못했음)
-//선생님답//
-let n = 11
-let isPrime = true
-if (n ===1){
-    isPrime = false
-}else{
-    for(let i=2;i<n;i++){
-        if(n % i ==0){
-            isPrime = false
+for(let i=1;i<=50;i++){ //참고로 i++ 는 i=i+1이랑 같아 알쥐?
+    let stringValue = i.toString()
+    let result = ""
+    for(let j=0;j<stringValue.length;j++){ //j는 결국 숫자의 인덱스를 뽑아 내기 위해 만든거야.
+        if(stringValue[j] === "3" || stringValue[j] === "6" || stringValue[j] === "9"){
+            result = result+"짝"
         }
     }
+    console.log(result.length>0?result:i)
 }
-console.log(isPrime)
